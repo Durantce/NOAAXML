@@ -1,5 +1,7 @@
 import pandas as pd
 import datetime
+from xml.dom.minidom import parse
+from urllib.request import urlopen
 
 stations_frame = pd.read_excel('XMLPerStation.xlsx')
 stations_frame.index = stations_frame['Station ID']
@@ -21,8 +23,6 @@ for inum, row in enumerate(stations_frame.iterrows()):
         value = float(minidom.parse(urlopen(url1)).getElementsByTagName('current_observation')[0].getElementsByTagName('temp_f')[0].childNodes[0].data)
 
         stations_frame.loc[inum:inum+1, 'Temperature'] = value
-        
-        print(row[0], value)
         
     except IndexError:
         
