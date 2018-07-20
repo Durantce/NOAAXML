@@ -19,7 +19,7 @@ for inum, row in enumerate(stations_frame.iterrows()):
         
         url1 = row[1]['xml url']
 
-        value = float(minidom.parse(urlopen(url1)).getElementsByTagName('current_observation')[0].getElementsByTagName('temp_f')[0].childNodes[0].data)
+        value = float(parse(urlopen(url1)).getElementsByTagName('current_observation')[0].getElementsByTagName('temp_f')[0].childNodes[0].data)
 
         stations_frame.loc[inum:inum+1, 'Temperature'] = value
         
