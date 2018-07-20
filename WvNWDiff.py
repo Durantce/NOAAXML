@@ -26,7 +26,6 @@ for inum, row in enumerate(stations_frame.iterrows()):
         
     except IndexError:
         
-        print('INDEX ERROR: Dropping ', row[0])
         stations_frame.drop(row[0], inplace=True,axis=0)
     
 stations_frame.dropna(axis=0, inplace=True)
