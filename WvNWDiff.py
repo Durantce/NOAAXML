@@ -65,4 +65,10 @@ while True:
 
     difference = weighted_national_average - non_weighted_national_average
 
-    print('{}: {}'.format(runtime, difference))
+    
+    workbook = openpyxl.load_workbook('NOAAFeed.xlsx')
+    data_sheet = workbook['Data']
+
+    data_sheet.append([runtime, difference])
+
+    workbook.save('NOAAFeed.xlsx')
