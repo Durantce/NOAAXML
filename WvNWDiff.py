@@ -3,6 +3,7 @@ import datetime
 from xml.dom.minidom import parse
 from urllib.request import urlopen
 import numpy as np
+import openpyxl
 
 while True:
 
@@ -65,4 +66,10 @@ while True:
 
     difference = weighted_national_average - non_weighted_national_average
 
-    print('{}: {}'.format(runtime, difference))
+    
+    workbook = openpyxl.load_workbook('NOAAFeed.xlsx')
+    data_sheet = workbook['Data']
+
+    data_sheet.append([now, difference])
+
+    workbook.save('NOAAFeed.xlsx')
