@@ -5,6 +5,8 @@ from urllib.request import urlopen
 import numpy as np
 import openpyxl
 
+excel_file_name = 'NOAAFeed.xlsx'
+
 while True:
 
     stations_frame = pd.read_excel('XMLPerStation.xlsx')
@@ -67,9 +69,9 @@ while True:
     difference = weighted_national_average - non_weighted_national_average
 
     
-    workbook = openpyxl.load_workbook('NOAAFeed.xlsx')
+    workbook = openpyxl.load_workbook(excel_file_name)
     data_sheet = workbook['Data']
 
     data_sheet.append([now, difference])
 
-    workbook.save('NOAAFeed.xlsx')
+    workbook.save(excel_file_name)
