@@ -1,3 +1,5 @@
 # NOAAXML
 
 Run WvNWDiff.py to get the difference between the national weighted average temperature and the flat average temperature.
+
+PopulationByFIPS.xlsx will be used to get population data for weighted the data obtained from the NOAA XML temperature feed (https://w1.weather.gov/xml/current_obs/index.xml).
