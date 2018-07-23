@@ -6,3 +6,4 @@ PopulationByFIPS.xlsx will be used to get population data for weighted the data 
 
 XMLPerStation.xlsx data is used for readng the XML temperature feed.
 
+After running, the date and time along with the difference in temperatures is read in to NOAAFeed.xlsx.
