@@ -85,11 +85,9 @@ if __name__ == '__main__':
 
     data.ReformatFrames()
 
-    diff = data.GetTemperatures()
-
     workbook = openpyxl.load_workbook(excel_file_name)
     data_sheet = workbook['Data']
 
-    data_sheet.append([now, difference])
+    data_sheet.append(data.GetTemperatures())
 
     workbook.save(excel_file_name)
